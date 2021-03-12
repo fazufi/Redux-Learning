@@ -1,17 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import { CSemua } from './App';
-import reportWebVitals from './reportWebVitals';
-import { Provider } from 'react-redux';
-import { store } from "./App";
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import { CApp, persistor, store } from "./store";
+import reportWebVitals from "./reportWebVitals";
+import { Provider } from "react-redux";
 
+// import { PersistGate } from "redux-persist/integration/react";
 
 ReactDOM.render(
-  <Provider store={store}>
-    <CSemua />
-  </Provider>,
-  document.getElementById('root')
+  <React.StrictMode>
+    <Provider store={store}>
+      {/* <PersistGate loading={null} persistor={persistor}> */}
+        <CApp />
+      {/* </PersistGate> */}
+    </Provider>
+  </React.StrictMode>,
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

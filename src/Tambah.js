@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 
-export default class Satu extends Component {
+export default class TambahLuarFileApp extends Component {
   render() {
-    console.log("satu", this.props)
+    console.log("TambahLuarFileApp", this.props)
     return (
       <div>
-        <p>satu</p>
+        <p>TambahLuarFileApp</p>
         
       </div>
     )
@@ -13,30 +13,4 @@ export default class Satu extends Component {
 }
 
 
-
-export  class Dua extends Component {
-  render() {
-    console.log("dua", this.props)
-
-    return (
-      <div>
-        <p>dua</p>
-      </div>
-    )
-  }
-}
-
-
-
-export  class Tiga extends Component {
-  render() {
-    console.log("tiga", this.props)
-
-    return (
-      <div>
-        <p>tiga</p>
-      </div>
-    )
-  }
-}
 

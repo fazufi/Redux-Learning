@@ -1,68 +1,38 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import { createStore } from "redux";
-import Satu, { Dua, Tiga } from "./Tambah";
+import { CTambahDalamFileApp, CTambahLuarFileApp } from "./store";
 
-class Semua extends Component {
-  render() {
-    console.log("semua", this.props);
-    return (
-      <div>
-        <CCobaProps />
-        <CApp />
-        <CSatu />
-        <CDua />
-        <CTiga />
-      </div>
-    );
-  }
-}
 
-class CobaProps extends Component {
-  render() {
-    console.log("cobaprops", this.props);
-    return (
-      <div>
-        <h1>siji</h1>
-      </div>
-    );
-  }
-}
-class App extends Component {
+export default class App extends Component {
+  onChange = (e) => {
+    e.target.name === "nama" && this.props.gantiNama(e.target.value);
+    e.target.name === "rumah" && this.props.gantiRumah(e.target.value);
+  };
   render() {
     console.log("app", this.props);
     return (
       <div>
         <h1>{this.props.nama}</h1>
+        <h1>{this.props.rumah}</h1>
+        <input name="nama" onChange={this.onChange} />
+        <input name="rumah" onChange={this.onChange} />
+
+
+        <CTambahDalamFileApp />
+        <CTambahLuarFileApp />
       </div>
     );
   }
 }
 
-// GAWE STORE
-
-const State = {
-  nama: "Fazufi",
-  rumah: "Solo",
-};
-
-function Reduser(STATE = State) {
-  return STATE;
+export class TambahDalamFileApp extends Component {
+  render() {
+    console.log("TambahDalamFileApp", this.props);
+    return (
+      <div>
+        <h1>TambahDalamFileApp</h1>
+      </div>
+    );
+  }
 }
 
-export const store = createStore(
-  Reduser
-);
 
-
-const mapStateToProps = (STATE) => {
-  return {...STATE };
-};
-
-
-export const CSemua = connect(mapStateToProps)(Semua);
-const CApp = connect(mapStateToProps)(App);
-const CCobaProps = connect(mapStateToProps)(CobaProps);
-const CSatu = connect(mapStateToProps)(Satu);
-const CDua = connect(mapStateToProps)(Dua);
-const CTiga = connect(mapStateToProps)(Tiga);
