@@ -24,7 +24,8 @@ const persistedReduser = persistReducer(
   {key: "root", storage}, Reduser
 )
 
-export const store = createStore(persistedReduser)
+const isDev = process.env.NODE_ENV === 'development'
+export const store = createStore(persistedReduser, isDev ? window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() : '')
 export const persistor = persistStore(store)
 
 export const mapStateToProps = (STATE) => {
@@ -37,6 +38,7 @@ const mapDispatchToProps = (dispatch) => {
     gantiRumah: (data) => dispatch({ type: "gantiRumah", rumah: data }),
   };
 };
+
 
 
 export const CApp = connect(mapStateToProps, mapDispatchToProps)(App);

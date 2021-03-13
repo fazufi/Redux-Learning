@@ -15,7 +15,8 @@ export default class App extends Component {
         <h1>{this.props.rumah}</h1>
         <input name="nama" onChange={this.onChange} />
         <input name="rumah" onChange={this.onChange} />
-
+        <br />
+        <br />
 
         <CTambahDalamFileApp />
         <CTambahLuarFileApp />
@@ -29,7 +30,7 @@ export class TambahDalamFileApp extends Component {
     console.log("TambahDalamFileApp", this.props);
     return (
       <div>
-        <h1>TambahDalamFileApp</h1>
+        <p>TambahDalamFileApp</p>
       </div>
     );
   }
